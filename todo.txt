@@ -1,0 +1,9 @@
+Broken Features:
+
+Can't close both login and signup forms by clicking to the side
+
+Todo:
+
+Blog homescreen
+search bar
+login functionality
