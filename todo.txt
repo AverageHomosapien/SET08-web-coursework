@@ -1,9 +1,13 @@
 Broken Features:
 
 Can't close both login and signup forms by clicking to the side
+Contact needs slight margin / padding on rhs (user page)
 
 Todo:
 
 Blog homescreen
 search bar
 login functionality
+
+Profile picture site:
+https://pixabay.com/p-973460/?no_redirect
