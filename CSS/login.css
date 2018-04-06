@@ -7,6 +7,7 @@
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  color: #8C1A6A;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 .title{
   position:relative;
   text-align: center;
-  color: #FBFFB9;
+  color: #8C1A6A;
   margin-bottom: 50px;
 }
 
@@ -57,7 +58,7 @@ body {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #8C1A6A;;
     text-decoration: none;
     cursor: pointer;
   }
@@ -162,4 +163,5 @@ hr {
 
 .footer{
   font-size: 75%;
+  color: #8C1A6A;
 }
