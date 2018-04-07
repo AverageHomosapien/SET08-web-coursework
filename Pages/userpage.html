@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../CSS/style.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <meta charset="utf-8" />
-    <script src="/stdjavascript.js"></script>
+    <script src="js/stdjavascript.js"></script>
     <title>Profile Page</title>
   </head>
   <body>
@@ -14,8 +14,8 @@
       <a class="active" href="userpage.html">Profile</a>
       <a href="edit_userpage.html">Edit Profile</a>
       <div class="search-container">
-      <form action="js/stdjavascript.js">
-      <a href="login.html">Sign Out</a>
+      <form onSubmit="updateProfilePicture()">
+      <a href="index.html">Sign Out</a>
         <input type="text" placeholder="Search for users..." name="search">
       <button type="submit">Submit</button>
       </form>

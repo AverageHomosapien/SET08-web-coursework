@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
   <meta charset="utf-8" />
   <script src="js/stdjavascript.js"></script>
+  <script src="js/jquery.js"></script>
   <title>Home Page</title>
 </head>
 
@@ -22,7 +23,7 @@
     <!-- The Modal (contains the Sign Up form) -->
     <div id="id01" class="modal">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">Return</span>
-      <form class="modal-content" action="js/stdjavascript.js">
+      <form id="signupForm" class="modal-content">
         <div class="container">
           <h1>Sign Up</h1>
           <p>Complete the form below to sign up.</p>
@@ -34,7 +35,7 @@
           <input type="password" placeholder="Enter Password" name="psw" required>
 
           <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <input type="password" placeholder="Repeat Password" name="psw_repeat" required>
 
           <div class="clearfix">
             <button type="submit" class="signup" onclick="signup()">Sign Up</button>
@@ -51,7 +52,7 @@
   <!-- The Modal (contains the Login form) -->
   <div id="id02" class="modal">
     <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">Return</span>
-    <form class="modal-content" action="/action_page.php">
+    <form id="loginForm" class="modal-content" action="/action_page.php">
       <div class="container">
         <h1>Log in</h1>
         <p>Please log in below.</p>

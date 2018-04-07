@@ -117,3 +117,7 @@ hr {
 .edit_container{
 	float: right;
 }
+
+.edit_label{
+	margin-right: 15px;
+}
