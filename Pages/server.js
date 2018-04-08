@@ -1,15 +1,21 @@
 var fs = require('fs');
 var connect = require('connect');
 var serveStatic = require('serve-static');
+//var jsImport = require("./js/stdjavascript");
+var loggedIn = false;
+
+// server.js
+const jsImport = require('./js/stdjavascript');
+let val = jsImport.signup(); // val is "Hello"
+
 connect().use(serveStatic(__dirname)).listen(8080, function(){
     console.log('Server running on 8080...');
 });
-var loggedIn = false;
-const script = require('./js/stdjavascript');
+//const script = require('./js/stdjavascript');
 
-
-
-function addLogin(jsonData){
+function addLogin(){
+  //var jsonData = jsImport.getSignupFields();
+  window.alert("jsonData is " + val);
   fs.appendFile('user_data/logins.json', jsonData, function(err){
   	if (err) throw err;
   	console.log('Saved!');

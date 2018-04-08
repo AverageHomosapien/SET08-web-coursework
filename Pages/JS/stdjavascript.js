@@ -1,5 +1,33 @@
-module.exports ={
 
+
+module.exports = {
+  // Deals with user signing up to site
+  signup: function(){
+    var user, password, password_repeat;
+
+    var document = typeof document === 'undefined' ? '' : document;
+
+    var user = window.document.getElementById("signupForm").username.value;
+    var psw = document.getElementById("signupForm").psw.value;
+    var password_repeat = document.getElementById("signupForm").psw_repeat.value;
+      if (user === "" || psw === "" || password_repeat === ""){
+        window.alert("Please ensure that you complete all the fields");
+      }else{
+        var formData = $("signupForm.username")
+        window.alert("program actually working");
+        if (psw !== password_repeat){
+          window.alert("Please ensure that both passwords are the same");
+        } else {
+          var data = {
+            username: user,
+            password: psw
+          }
+          var jsonData = JSON.stringify(data);
+          //download(jsonData, 'json.txt', 'text/plain');
+        }
+      }
+    return jsonData;
+  }
 }
 
 function login(){
@@ -16,36 +44,6 @@ function login(){
   }else{
     window.alert("Login successful. Redirecting...");
   }
-}
-
-function signup(){
-  var user, password, password_repeat;
-
-  var user = document.getElementById("signupForm").username.value;
-  var psw = document.getElementById("signupForm").psw.value;
-  var password_repeat = document.getElementById("signupForm").psw_repeat.value;
-
-  var formData = $("signupForm.username")
-
-  window.alert("program actually working");
-  // Working now
-  if (psw !== password_repeat){
-    window.alert("Please ensure that both passwords are the same");
-  } else {
-    var data = {
-      username: user,
-      password: psw
-    }
-
-    var jsonData = JSON.stringify(data);
-    download(jsonData, 'json.txt', 'text/plain');
-  }
-
-  // check that it's not already a login
-  // if it's not a set of log in details already then
-    // Check to see if password and re-entered passwords are the same
-    // if they are then set new user && save to FILE
-    // Else, complain more than I am right now
 }
 
 function download(content, fileName, contentType) {
@@ -66,8 +64,6 @@ function newPost(){
 
 function updateProfilePicture(){
   window.alert('Profile Picture Updated');
-
-
 }
 
 function userLoggedIn(){
