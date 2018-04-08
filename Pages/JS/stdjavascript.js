@@ -1,13 +1,5 @@
-var loggedIn = false;
+module.exports ={
 
-// Get the modal
-var loginModal = document.getElementById('id02');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == loginModal) {
-        modal.style.display = "none";
-    }
 }
 
 function login(){
@@ -74,4 +66,40 @@ function newPost(){
 
 function updateProfilePicture(){
   window.alert('Profile Picture Updated');
+
+
 }
+
+function userLoggedIn(){
+  var url = require('../server.js');
+  var url_parts = url.parse(request.url, true);
+  var query = url_parts.query;
+}
+
+function edit_post(){
+  window.alert("EDIT POST");
+}
+
+/*
+// Function called when the user is updating their bio
+function updateInfo(firstTime){
+  var name, bio, gender, occupation, age;
+  if (firstTime === "true"){
+
+    var name = document.getElementById("userInfoForm").name.value;
+    var bio = document.getElementById("userInfoForm").blog_bio.value;
+    var gender = document.getElementById("userInfoForm").gender.value;
+    var occupation = document.getElementById("occupation").occupation.value;
+    var age = document.getElementById("age").age.value;
+
+    if (name === "" || bio === "" || gender === "" ||| occupation === "" || age === ""){
+      window.alert("Please ensure that you update all of your profile information.")
+      return false;
+    }
+  }
+
+  window.alert("name");
+
+  window.alert("Profile updated.");
+}
+*/
