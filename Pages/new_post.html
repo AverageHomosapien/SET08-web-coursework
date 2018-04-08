@@ -14,7 +14,7 @@
       <a href="userpage.html">Profile</a>
       <a href="edit_userpage.html">Edit Profile</a>
       <div class="search-container">
-      <form onSubmit="updateProfilePicture()">
+      <form id="searchForm" onSubmit="userSearch()">
       <a href="index.html">Sign Out</a>
         <input type="text" placeholder="Search for users..." name="search">
       <button type="submit">Submit</button>
@@ -23,7 +23,7 @@
     </div>
     <section class="page_content">
 
-      <form onsubmit="addPost()">
+      <form id="submitPostForm" onsubmit="addPost()">
         <div class="container">
           <h1>New Post</h1>
           <label class="edit_label" for="title"><b>Title:</b></label>
