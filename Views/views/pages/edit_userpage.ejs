@@ -8,18 +8,17 @@
     <title>Profile Page</title>
     <base href="/">
   </head>
-  <body onload="userLoggedIn()">
-    <div class="topnav">
-      <a href="new_post.html">New Post</a>
-      <!-- New post can also be used to edit original posts -->
-      <a href="userpage.html">Profile</a>
-      <a class="active" href="edit_userpage.html">Edit Profile</a>
-      <div class="search-container">
-      <form id="searchForm" onSubmit="userSearch()">
-      <a href="index.html">Sign Out</a>
-        <input type="text" placeholder="Search for users..." name="search">
-      <button type="submit">Submit</button>
-      </form>
+  <div class="topnav">
+    <a href="/new_post">New Post</a>
+    <!-- New post can also be used to edit original posts -->
+    <a href="/userpage">Profile</a>
+    <a class="active" href="/edit_userpage">Edit Profile</a>
+    <div class="search-container">
+    <form id="searchForm" onSubmit="userSearch()">
+    <a href="/">Sign Out</a>
+      <input type="text" placeholder="Search for users..." name="search">
+    <button type="submit">Submit</button>
+    </form>
       </div>
     </div>
     <section class="page_content">

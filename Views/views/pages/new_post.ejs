@@ -9,13 +9,13 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="new_post.html">New Post</a>
+      <a class="active" href="new_post.ejs">New Post</a>
       <!-- New post can also be used to edit original posts -->
-      <a href="userpage.html">Profile</a>
-      <a href="edit_userpage.html">Edit Profile</a>
+      <a href="/userpage">Profile</a>
+      <a href="/edit_userpage">Edit Profile</a>
       <div class="search-container">
       <form id="searchForm" onSubmit="userSearch()">
-      <a href="index.html">Sign Out</a>
+      <a href="/">Sign Out</a>
         <input type="text" placeholder="Search for users..." name="search">
       <button type="submit">Submit</button>
       </form>
@@ -34,7 +34,7 @@
           <br><br>
           <div class="clearfix">
             <button type="submit" class="signup">Add Post</button>
-            <button type="button" onclick="location.href='userpage.html'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="location.href='/userpage'" class="cancelbtn">Cancel</button>
           </div>
         </div>
       </form>
