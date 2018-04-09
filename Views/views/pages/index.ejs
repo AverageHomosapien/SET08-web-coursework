@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/CSS/login.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+  <meta charset="utf-8" />
+  <script src="/JS/stdjavascript.js"></script>
+  <script src="/JS/jquery.js"></script>
+  <title>Home Page</title>
+</head>
+
+<body>
+  <article>
+    <header class="title">
+      <h1>Welcome to Cobalt</h1>
+    </header>
+  </article>
+  <article id="login">
+    <!-- Button to open the modal -->
+    <button onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+
+    <!-- The Modal (contains the Sign Up form) -->
+    <div id="id01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">Return</span>
+      <form id="signupForm" class="modal-content">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Complete the form below to sign up.</p>
+          <hr>
+          <label for="email"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw_repeat" required>
+
+          <div class="clearfix">
+            <button type="submit" class="signup" onclick="signup()">Sign Up</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </article>
+
+  <!-- Button to open the Login modal -->
+  <button onclick="document.getElementById('id02').style.display='block'">Log in</button>
+
+  <!-- The Modal (contains the Login form) -->
+  <div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">Return</span>
+    <form id="loginForm" class="modal-content" action="/action_page.php">
+      <div class="container">
+        <h1>Log in</h1>
+        <p>Please log in below.</p>
+        <hr>
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <div class="clearfix">
+          <button type="submit" class="login" onclick="login()">Log in</button>
+          <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <button onclick="window.location='/userpage'">Continue to Site</button>
+
+  <footer>
+    <p class="footer">Created by Calum Hamilton</p>
+  </footer>
+</body>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+//var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById('id01') || event.target == document.getElementById('id02')) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+</html>

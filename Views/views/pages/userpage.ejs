@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <meta charset="utf-8" />
+    <script src="js/stdjavascript.js"></script>
+    <title>Profile Page</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="/new_post">New Post</a>
+      <!-- New post can also be used to edit original posts -->
+      <a class="active" href="/userpage">Profile</a>
+      <a href="/edit_userpage">Edit Profile</a>
+      <div class="search-container">
+      <form id="searchForm" onSubmit="userSearch()">
+      <a href="/">Sign Out</a>
+        <input type="text" placeholder="Search for users..." name="search">
+      <button type="submit">Submit</button>
+      </form>
+      </div>
+    </div>
+    <section class="page_content">
+      <img src="images/stock_profile.png" id="profile_pic" height="350" align="left">
+      <h4><%= details.name %></h4>
+      <p><%= details.bio %><p>
+      <p>Gender: <%= details.gender %> </p>
+      <p>Age: <%= details.age %></p>
+      <p>Occupation: <%= details.occupation %></p>
+      <h4>Blog Summary</h4>
+      <p><%= details.blog_summary %><p>
+      <hr>
+      <!-- Below this is what will be automatically generated based on blog information-->
+      <h3>Post Title</h3>
+      <p>This is an example blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="edit_container">
+        <button class="edit_post" type="button">Edit</button>
+        <button class="edit_post" type="button">Delete</button>
+      </div>
+      <br>
+      <hr>
+      <!-- End of automatic blog generation -->
+      <footer>
+        <p class="footer">Created by Calum Hamilton</p>
+      </footer>
+    </section>
+  </body>
+</html>

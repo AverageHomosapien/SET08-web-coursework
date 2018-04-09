@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <meta charset="utf-8" />
+    <script src="js/stdjavascript.js"></script>
+    <title>Profile Page</title>
+    <base href="/">
+  </head>
+  <div class="topnav">
+    <a href="/new_post">New Post</a>
+    <!-- New post can also be used to edit original posts -->
+    <a href="/userpage">Profile</a>
+    <a class="active" href="/edit_userpage">Edit Profile</a>
+    <div class="search-container">
+    <form id="searchForm" onSubmit="userSearch()">
+    <a href="/">Sign Out</a>
+      <input type="text" placeholder="Search for users..." name="search">
+    <button type="submit">Submit</button>
+    </form>
+      </div>
+    </div>
+    <section class="page_content">
+      <form id="userInfoForm" onsubmit="updateInfo()">
+        <div class="container">
+          <h1>New Post</h1>
+          <p>Fill in all the fields you wish to update on your profile.</p>
+          <label class="edit_label" for="name"><b>Name:</b></label>
+          <input style="width:200px" type="title" placeholder="Display Name:" name="name">
+          <br>
+          <br>
+          <label class="edit_label" for="blog_bio"><b>Bio:</b></label>
+          <textarea name="blog_bio" type="blog_bio" placeholder="Blog Bio" cols="80" rows="3"></textarea>
+          <br><br>
+          <label class="edit_label" for="gender"><b>Gender:</b></label>
+          <input style="width:100px" type="gender" placeholder="Gender" name="gender">
+          <br><br>
+          <label class="edit_label" for="occupation"><b>Occupation:</b></label>
+          <input style="width:200px" type="occupation" placeholder="Occupation" name="occupation">
+          <br><br>
+          <label class="edit_label" for="age"><b>Age:</b></label>
+          <input style="width:50px" type="age" placeholder="Age" name="age">
+          <br><br>
+          <button type="button" class="signup" onclick="javascript:updateProfilePicture();">Upload Profile Picture</button>
+          <br><br><br>
+          <div class="clearfix">
+            <button type="submit" class="signup">Update Profile</button>
+            <button type="button" onclick="location.href='userpage.html'" class="cancelbtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+      <br>
+      <footer>
+        <p class="footer">Created by Calum Hamilton</p>
+      </footer>
+    </section>
+  </body>
+</html>
