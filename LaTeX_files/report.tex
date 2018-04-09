@@ -1,0 +1,149 @@
+% #######################################
+% ########### FILL THESE IN #############
+% #######################################
+\def\mytitle{40205163 Coursework Report}
+\def\mykeywords{HTML, CSS, JavaScript, Report, Coursework, University, Web, Tech, Coursework, Napier}
+\def\myauthor{Calum Hamilton}
+\def\contact{40205163@napier.ac.uk}
+\def\mymodule{Module Title (SET008101)}
+% #######################################
+% #### YOU DON'T NEED TO TOUCH BELOW ####
+% #######################################
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+%colour our links, remove weird boxes
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+%Stop indentation on new paragraphs
+\usepackage[parfill]{parskip}
+%% Arial-like font
+\IfFileExists{uarial.sty}
+{
+    \usepackage[english]{babel}
+    \usepackage[T1]{fontenc}
+    \usepackage{uarial}
+    \renewcommand{\familydefault}{\sfdefault}
+}{
+    \GenericError{}{Couldn't find Arial font}{ you may need to install 'nonfree' fonts on your system}{}
+    \usepackage{lmodern}
+    \renewcommand*\familydefault{\sfdefault}
+}
+%Napier logo top right
+\usepackage{watermark}
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%tone down the line spacing after section titles
+\usepackage{titlesec}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+	escapeinside={/*@}{@*/}, language=C++,
+	basicstyle=\fontsize{8.5}{12}\selectfont,
+	numbers=left,numbersep=2pt,xleftmargin=2pt,frame=tb,
+    columns=fullflexible,showstringspaces=false,tabsize=4,
+    keepspaces=true,showtabs=false,showspaces=false,
+    backgroundcolor=\color{white}, morekeywords={inline,public,
+    class,private,protected,struct},captionpos=t,lineskip=-0.4em,
+	aboveskip=10pt, extendedchars=true, breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+\thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{logo}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+% #######################################
+% ########### START FROM HERE ###########
+% #######################################
+\begin{document}
+    \maketitle
+    \begin{abstract}
+\paragraph{Coursework Brief}
+The coursework given was designed to show that we had acquired a number of skills over the term of the course: an understanding of the World Wide Web, a solid understanding of web page development, an accrual of skills working with different web authoring tools and languages and the ability to combine a set of web pages and a web server to produce a working product.
+
+\paragraph{Report Summary} 
+The report below is designed to describe the process I took from starting the project to the end product, and an analysis of each of the stages. It will also look to provide details of the learning process undertaken throughout the entire project. The coursework files will be in the same private repository with the report I have produced. The website has been produced specifically for the coursework project and is not planned to be used in any later applications. The report and coursework have only been shared with Simon Wells and myself at the time of writing.
+    \end{abstract}
+    
+    \textbf{Keywords -- }{\mykeywords}
+    
+	\section{Introduction}
+	\paragraph{Assignment}
+The assignment given was to create a simple blog platform, using server and client-side coding. This is a leap from the last coursework since it was only client-side code that we needed to produce in the first coursework. The basic functionality of the blog posts include adding, editing and deleting blog posts with data persistence. There was also a lot of scope for extension in this coursework, looking for us to push our abilities, creativity and learning. This coursework is also quite a lot more advanced than the last coursework, as data persistence and server-side coding is something that we weren't required to do in the first coursework.
+	\paragraph{Website Features}
+I created a simple 4 page website: a login page, blog home page, a page to edit the blog and a page to create a new blog post.
+The navigation system is through a navbar, with an unimplemented search bar. The navbar was designed to provide functionality to easily access the commonly used parts of the site, while the search bar was designed to search for other users within the blog and bring up their blog page, with all their posts. The search bar was required for finding other blogs, since the dataset of names is too large for any other display style.
+
+	\paragraph{Website Functionality}
+Of the HTML features I have implemented, the sign up, login and the search functions don't work. I will analyze these complications later in the report. The login and sign up functions both open up a menu which allows the user to enter the relevant data. The edit profile page has a set of fields where you can actively update the details of your profile page, including a bio, age and occupation. The new post page has a field for title entry and a post, which both get stored and displayed under the user profile. The profile displays all the information, along with a profile picture and options for updating or deleting current posts.
+
+    	\section{Software Design}
+    	\paragraph{Approach}
+I wanted to change up my approach from the last website that I made for the coursework. I firstly went to the library and loaned out the "Mobile Web Designer's Idea Book" and "The Web Designer's Idea Book - Volume 3". I read a number of books and articles online about web development to strengthen my understanding before I attempted the challenging project. I drew heavy inspiration from my previous coursework for the style and I went back to the idea of a standard navbar and a centered website as the style looks clean, although to alternate, I removed a number of pictures as I found them to cluster up the page. After also spotting a number of other standard features from blog platforms in the Web and Mobile Web Designer Books, I then went to Facebook and Twitter to check if there were other features to implement. The age, gender and occupation came as a result of that, although I left out relationship status, as I'd rather it remain a blog site and not a dating site.
+
+For a colour scheme, I went back to "https://coolors.co/" and looked for a clean and unique colour scheme. I found a very attractive purple I liked and the yellow and pink seemed to fit the colour scheme. I then relied on "https://wireframe.cc/" to get a basic layout in place, however unlike last time, I also drew up a large number of plans and kept sketching the pages for my site and a quick layout. I wanted to ensure that I was very happy with my layout and colour scheme before I even started coding.
+
+I kept all the pages at the same level, although had the idea to redirect users to the login page if they weren't already logged in if accessing a custom part of the site, which I attempted to implement. I didn't see a need for a hierarchy in such a small website, since all pages were on the same navbar. If I had other pages I would have looked at creating sub menus through a dropdown menu.
+
+	\section{Implementation}
+I worked in Atom for creating the web application. I started with the index login page to get the basic colour scheme finalized and to get a base to build the best of the site from.
+I made several dummy html pages to test out all the elements and all of the elements I wanted to try.
+\cite{profile}\cite{jquery}\cite{express}\cite{nodejs}
+
+	\figuremacro{h}{index-screenshot}{Webpage Screenshot}{ -Screenshot of the Index}{1.0}
+	\figuremacro{h}{new-post-screenshot}{New Post Screenshot}{ -Screenshot of the New Post Page}{1.0}
+	\figuremacro{h}{profile-screenshot}{Profile Screenshot}{ -Screenshot of the Profile Page}{1.0}
+	\figuremacro{h}{update-profile-screenshot}{Update Profile Screenshot}{ -Screenshot of the Profile Update Page}{1.0}
+	
+	\section{Critical Evaluation}
+	\paragraph{Evaluation}
+Overall the design of the website matches the document requirements. The design of the page is very clean, easy to navigate and easy to use. As a standard, the website is very consistent as well for usability. The spacing and layout is a lot better than the first coursework that I submitted.
+There is a clean standard navigation and color scheme is throughout the website.
+The index page however needs a restructuring to clean up the page and provide more clarity upon entering the website.
+I also needed more time to fully understand the potential of the different modules that I was using.
+	\paragraph{Next Time}
+If I were to do the site again I'd give myself more time and have a full structure planned by the site beforehand. I'd get the login, sign up and search sorted and clean up a lot of the code.
+I'd also ensure that the pictures dimensions were very close to ensure that each of the cipher pages were as close as possible, to try and perpetuate good website practice.
+
+	\section{Personal Evaluation}
+	\paragraph{Learning}
+I've learnt the difficulties with client and server-side communication. I've also gained a lot of experience downloading and installing modules. I've gained more experience programming on multiple levels and understand the distinction between server and client a lot more clearly now. I've also seen that it can be easy to make a website look really nice but actually getting it to work can be another matter altogether.
+
+	\paragraph{Challenges}
+One of the biggest challenges was balancing workloads. Again, the Software Development Methods coursework was due the same day, and I was unable to balance my work very efficiently. This led to a lot of features being underdeveloped and unfinished, such as the three features mentioned above; search bar, login and sign up forms. I left them in however to show what the site would eventually look like with more time and development, as well as showing that there's minimal functions on the website, because I ran out of time.
+
+I've faced a large number of challenges in the project, getting the server to run and work and getting communication working between the server and client side. Getting the JSON to save was also a very difficult challenge that I faced as well as automatically generating HTML. I dealt with these problems by changing the feature I was working on, and coming back to each feature one by one, to try and push the development cycle forward, even if there were parts where I was stuck.
+
+Overall I feel like the project has taught me a lot about time management, web design techniques, server-side computing and communication via different protocols.
+	
+	\section{Conclusion}
+	\bibliographystyle{ieeetr}
+	\bibliography{references}
+
+\end{document}
