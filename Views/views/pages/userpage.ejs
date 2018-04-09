@@ -23,13 +23,13 @@
     </div>
     <section class="page_content">
       <img src="images/stock_profile.png" id="profile_pic" height="350" align="left">
-      <h4>Name Template</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <p>Gender: </p>
-      <p>Age: </p>
-      <p>Occupation: </p>
+      <h4><%= details.name %></h4>
+      <p><%= details.bio %><p>
+      <p>Gender: <%= details.gender %> </p>
+      <p>Age: <%= details.age %></p>
+      <p>Occupation: <%= details.occupation %></p>
       <h4>Blog Summary</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      <p><%= details.blog_summary %><p>
       <hr>
       <!-- Below this is what will be automatically generated based on blog information-->
       <h3>Post Title</h3>

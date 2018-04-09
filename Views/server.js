@@ -15,19 +15,23 @@ app.set('view engine', 'ejs');
 
 app.get ('/', function(req, res ) {
 res.render('pages/index.ejs');
-})
+});
 
 app.get ('/userpage', function(req, res ) {
-res.render('pages/userpage.ejs');
-})
+
+var user =   JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
+console.log(user);
+
+res.render('pages/userpage.ejs', {details: user});
+});
 
 app.get ('/edit_userpage', function(req, res ) {
 res.render('pages/edit_userpage.ejs');
-})
+});
 
 app.get ('/new_post', function(req, res ) {
 res.render('pages/new_post.ejs');
-})
+});
 
 var server = app.listen (8080,"127.0.0.1",function () {
 var host = server.address ().address
