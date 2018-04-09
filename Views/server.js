@@ -1,14 +1,16 @@
 var fs = require('fs');
-var connect = require('connect');
+var bodyParser = require('body-parser');
 // Serve static old command
 //var serveStatic = require('serve-static');
 var express = require ('express');
 var app = express () ;
 var path = require('path');
-
+var blog_arr = [];
+blog_arr = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/blog_data.json', 'utf8'));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 app.use(express.static(__dirname + '/views'));
+app.use(bodyParser.urlencoded({extended:true}));
 //app.set('views', './views');
 //app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
@@ -20,9 +22,9 @@ res.render('pages/index.ejs');
 app.get ('/userpage', function(req, res ) {
 
 var user =   JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
-console.log(user);
+blog_arr = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/blog_data.json', 'utf8'));
+res.render('pages/userpage.ejs', {details: user, posts: blog_arr});
 
-res.render('pages/userpage.ejs', {details: user});
 });
 
 app.get ('/edit_userpage', function(req, res ) {
@@ -41,6 +43,26 @@ var port = server.address ().port
 console.log (" Listening on http://%s:%s", host , port )
 })
 
+app.post('/new_post', function(req, res){
+  blog_arr = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/blog_data.json', 'utf8'));
+  var title = req.body['title'];
+  var content = req.body['content'];
+  var data = {
+    post_title: title,
+    post_content: content
+  }
+  blog_arr.push(data);
+  var json_save = JSON.stringify(blog_arr);
+  //console.log(blog_arr);
+  fs.writeFile(__dirname+'/views/user_data/blog_data.json', json_save, 'utf8', function (err) {
+    if (err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+});
+  res.redirect('userpage');
+});
 
 /*
 const script = require('./js/stdjavascript');
