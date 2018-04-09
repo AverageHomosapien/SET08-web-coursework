@@ -64,10 +64,6 @@ function addPost(){
 
 }
 
-function newPost(){
-  window.alert('new post');
-}
-
 function updateProfilePicture(){
   window.alert('Profile Picture Updated');
 }
