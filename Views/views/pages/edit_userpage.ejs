@@ -22,28 +22,29 @@
       </div>
     </div>
     <section class="page_content">
-      <form id="userInfoForm" onsubmit="updateInfo()">
+      <form id="userinfoForm" action= "/edit_userpage" method="POST">
         <div class="container">
           <h1>New Post</h1>
           <p>Fill in all the fields you wish to update on your profile.</p>
           <label class="edit_label" for="name"><b>Name:</b></label>
-          <input style="width:200px" type="title" placeholder="Display Name:" name="name">
+          <input style="width:200px" type="title" placeholder="Display Name:" name="name" value="<%= user.name %>">
           <br>
           <br>
           <label class="edit_label" for="blog_bio"><b>Bio:</b></label>
-          <textarea name="blog_bio" type="blog_bio" placeholder="Blog Bio" cols="80" rows="3"></textarea>
+          <textarea name="blog_bio" type="blog_bio" placeholder="Blog Bio" cols="80" rows="3"><%= user.bio %></textarea>
           <br><br>
           <label class="edit_label" for="gender"><b>Gender:</b></label>
-          <input style="width:100px" type="gender" placeholder="Gender" name="gender">
+          <input style="width:100px" type="gender" placeholder="Gender" name="gender" value="<%= user.gender %>">
           <br><br>
           <label class="edit_label" for="occupation"><b>Occupation:</b></label>
-          <input style="width:200px" type="occupation" placeholder="Occupation" name="occupation">
+          <input style="width:200px" type="occupation" placeholder="Occupation" name="occupation" value="<%= user.occupation %>">
           <br><br>
           <label class="edit_label" for="age"><b>Age:</b></label>
-          <input style="width:50px" type="age" placeholder="Age" name="age">
+          <input style="width:50px" type="age" placeholder="Age" name="age" value="<%= user.age %>">
           <br><br>
-          <button type="button" class="signup" onclick="javascript:updateProfilePicture();">Upload Profile Picture</button>
-          <br><br><br>
+          <label class="edit_label" for="blog_summary"><b>Summary:</b></label>
+          <textarea name="blog_summary" type="blog_summary" placeholder="Blog Bio" cols="74" rows="3"><%= user.blog_summary %></textarea>
+          <br><br>
           <div class="clearfix">
             <button type="submit" class="signup">Update Profile</button>
             <button type="button" onclick="location.href='userpage.html'" class="cancelbtn">Cancel</button>

@@ -6,6 +6,7 @@ var express = require ('express');
 var app = express () ;
 var path = require('path');
 var blog_arr = [];
+var user = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
 blog_arr = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/blog_data.json', 'utf8'));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
@@ -20,15 +21,15 @@ res.render('pages/index.ejs');
 });
 
 app.get ('/userpage', function(req, res ) {
-
-var user =   JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
+user = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
 blog_arr = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/blog_data.json', 'utf8'));
 res.render('pages/userpage.ejs', {details: user, posts: blog_arr});
 
 });
 
 app.get ('/edit_userpage', function(req, res ) {
-res.render('pages/edit_userpage.ejs');
+user = JSON.parse(fs.readFileSync(__dirname+'/views/user_data/profile_data.json', 'utf8'));
+res.render('pages/edit_userpage.ejs', {user:user});
 });
 
 app.get ('/new_post', function(req, res ) {
@@ -64,36 +65,53 @@ app.post('/new_post', function(req, res){
   res.redirect('userpage');
 });
 
-/*
-const script = require('./js/stdjavascript');
+app.post('/edit_userpage', function(req, res){
+  var name = req.body['name'];
+  var bio = req.body['blog_bio'];
+  var gen = req.body['gender'];
+  var occ = req.body['occupation'];
+  var age = req.body['age'];
+  var summary = req.body['blog_summary'];
 
-// To be called with the parameter jsonData to save
-// Also in another branch with the serverside request directly handled..
-//  ..with the client side having issues
-function addLogin(jsonData){
-  fs.appendFile('user_data/logins.json', jsonData, function(err){
-  	if (err) throw err;
-  	console.log('Saved!');
-  });
-}
-
-// loops through all the json data to check if it's there
-// Should call when page is loaded to check if the user is logged in and redirect
-function checkLogin(){
-  if (loggedIn != true){
-    window.location.replace("index.html");
+  var data = {
+    name: name,
+    bio: bio,
+    gender: gen,
+    occupation: occ,
+    age: age,
+    blog_summary: summary
   }
-}
+  var json_save = JSON.stringify(data);
+  //console.log(blog_arr);
+  fs.writeFile(__dirname+'/views/user_data/profile_data.json', json_save, 'utf8', function (err) {
+    if (err) {
+        return console.log(err);
+    }
 
+    console.log("The file was saved!");
+});
+  res.redirect('userpage');
+});
 
-/*
-// need to make a new file when a new person is mae
-function updateBlog(){
-  var filePath = path.join('user_data/', userId);
-  filePath = path.join(filePath, '.json');
-  fs.appendFile(filePath, jsonData, function(err)){
-    if (err) throw err;
-    console.log('Saved into file');
+app.post('/userpage', function(req, res){
+  var index = parseInt(req.body['number']);
+  if(req.body['submit'] == 'delete'){
+    blog_arr.splice(index, 1);
+
+    var json_save = JSON.stringify(blog_arr);
+    //console.log(blog_arr);
+    fs.writeFile(__dirname+'/views/user_data/blog_data.json', json_save, 'utf8', function (err) {
+      if (err) {
+          return console.log(err);
+      }
+
+      console.log("The file was saved!");
   });
-}
-*/
+  }else{
+    var saved = blog_arr[index];
+    blog_arr.splice(index, 1);
+
+
+  }
+  res.redirect('userpage');
+});

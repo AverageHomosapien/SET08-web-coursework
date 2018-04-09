@@ -35,10 +35,13 @@
       <% for (var i = 0; i<posts.length;i++) { %>
       <h3><%= posts[i].post_title %></h3>
       <p> <%= posts[i].post_content %> </p>
+      <form id="submitPostForm" action= "/userpage" method="POST">
       <div class="edit_container">
-        <button value="<%= i %>" class="edit_post" type="button">Edit</button>
-        <button value="<%= i %>" class="edit_post" type="button">Delete</button>
+        <p name="number"><%= i %></p>
+        <button value="edit" class="edit_post" type="submit" name="submit">Edit</button>
+        <button value="delete" class="edit_post" type="submit" name="submit">Delete</button>
       </div>
+    </form>
       <br>
       <hr>
       <% } %>
